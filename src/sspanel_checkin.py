@@ -61,4 +61,4 @@ class SSPANELCheckin:
 
 if __name__ == '__main__':
     ssp = SSPANELCheckin()
-    ssp.checkin()
+    ssp.main()
