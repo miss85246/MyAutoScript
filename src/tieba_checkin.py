@@ -98,8 +98,7 @@ class BaiduTieBa:
                     f"{datetime.now(self.timezone).strftime('%Y-%m-%d')} 您的账号进行了签到，签到结果如下：\n",
                     "===============================================================================\n",
                     '###############################################################################\n'.join(
-                        [f"{account:<20}&nbsp;&nbsp;&nbsp;&nbsp;{success:<12}&nbsp;&nbsp;&nbsp;&nbsp;{failed:<45} \n" for account, success, failed in
-                         self.results]
+                        [f"{account:<20}&nbsp;&nbsp;&nbsp;&nbsp;{result:<}\n" for (account, result) in self.results]
                     ),
                     "===============================================================================\n",
                 ]
