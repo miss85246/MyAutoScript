@@ -26,10 +26,10 @@ jobs:
 
       - name: Run Python script
         env:
-          EMAIL: ${{ secrets.SSPANEL_EMAIL }}
-          PASSWD: ${{ secrets.SSPANEL_PASSWD }}
+          SSPANEL_EMAIL: ${{ secrets.SSPANEL_EMAIL }}
+          SSPANEL_PASSWD: ${{ secrets.SSPANEL_PASSWD }}
           SERVER_KEY: ${{ secrets.SERVER_KEY }}
-          DOMAIN: ${{ secrets.SSPANEL_DOMAIN }}
+          SSPANEL_DOMAIN: ${{ secrets.SSPANEL_DOMAIN }}
         run: |
           cd src
           python sspanel_checkin.py
