@@ -7,9 +7,8 @@ on:
     - cron: '30 20 * * *'
 
 jobs:
-  run-script:
+  SSPanel:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -25,6 +24,32 @@ jobs:
           python -m pip install httpx pytz
 
       - name: Run Python script
+        env:
+          SSPANEL_EMAIL: ${{ secrets.SSPANEL_EMAIL }}
+          SSPANEL_PASSWD: ${{ secrets.SSPANEL_PASSWD }}
+          SERVER_KEY: ${{ secrets.SERVER_KEY }}
+          SSPANEL_DOMAIN: ${{ secrets.SSPANEL_DOMAIN }}
+        run: |
+          cd src
+          python sspanel_checkin.py
+
+  Tieba:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v3
+
+      - name: 初始化 Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.13
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip wheel setuptools
+          python -m pip install httpx pytz
+
+      - name: 执行签到
         env:
           BAIDU_BDUSS_LIST: ${{ secrets.BAIDU_BDUSS_LIST }}
           SERVER_KEY: ${{ secrets.SERVER_KEY }}
