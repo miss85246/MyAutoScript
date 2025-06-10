@@ -13,13 +13,12 @@ logger = logging.getLogger(__name__)
 
 class BaiduTieBa:
     def __init__(self):
-        self.bduss_list = os.environ.get('BAIDU_BDUSS', '').split('#')
+        self.bduss_list = os.environ.get('BAIDU_BDUSS_LIST', '').split(';')
         self.timezone = pytz.timezone('Asia/Shanghai')
         self.server_key = os.environ.get('SERVER_KEY')
         self.results = []
         self.client = None
         self.tbs = None
-        self.bduss = None
         self.need_checkin_tieba = []
         self.headers = {
             'Host'      : 'tieba.baidu.com',
