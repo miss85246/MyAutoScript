@@ -33,13 +33,6 @@ jobs:
         run: |
           cd src
           python sspanel_checkin.py
-      - name: Notify
-        uses: miss85246/github-action-wecomchan@v1.0.0
-        with:
-          baseUrl: ${{ secrets.WECOM_BASEURL }}
-          sendkey: ${{ secrets.WECOM_SENDKEY }}
-          title: "这是一条消息"
-          desp: "这里是具体的信息\n支持进行换行操作\n😊"
 
 
 
