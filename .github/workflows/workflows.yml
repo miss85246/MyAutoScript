@@ -1,10 +1,11 @@
 name: AutoCheckinSSPanel
 on:
-  push:
-    branches:
-      - main
-  schedule: # Github 为 UTC 时间，需要把 北京时间 4:30 转换为 UTC 时间 即 20:30
-    - cron: '30 20 * * *'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  # schedule: # Github 为 UTC 时间，需要把 北京时间 4:30 转换为 UTC 时间 即 20:30
+  #   - cron: '30 20 * * *'
     
 
 jobs:
